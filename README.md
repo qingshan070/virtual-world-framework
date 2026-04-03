@@ -1,82 +1,163 @@
-# VWI (Virtual World Infrastructure): Dual-Engine of Sentient & Vessel Worlds
+# VWI: Virtual World Framework
 
-[English Version](README.md) | [中文版](README_zh-CN.md)
+[English](README.md) | [简体中文](README_zh-CN.md)
 
-> **"There is no free will; there are only the consequences of stress, strain, and emergence."**
+> There is no free will; there are only the consequences of stress, strain, and emergence.
 
-VWI (Virtual World Infrastructure) is a **research-oriented virtual world infrastructure**. By bidirectionally binding a "Physics Engine" with "Large Language Models (LLMs)", it constructs an autonomous sandbox system that strictly follows determinism, possesses microscopic psychological evolution capabilities, and macroscopic social emergent properties.
+VWI is a **research-oriented virtual world framework** for exploring how deterministic simulation, personality modeling, and large language models can be combined into a unified sandbox system.
 
-This project is currently in the **Research Alpha** phase. It primarily open-sources its foundational **core theoretical architecture and whitepapers**, accompanied by some proof-of-concept code (`vwi_demo`).
+This repository is currently in an **early alpha / proof-of-concept** stage. It contains:
 
----
+- core theoretical documents and whitepapers
+- an early Python demo of the dual-engine design
+- implementation notes for future iterations
 
-## Core Ontology: No Self, Only Karma
-
-The philosophical core of this system is deeply inspired by Buddhist ontology, translating it into a rigorous software engineering paradigm:
-
-In this world, **NPCs (Characters) do not possess so-called "free will."**
-Every decision a character makes, every line they speak, is a **deterministic strain calculation result** produced when their "personality material" faces "physical impacts" from the external world.
-- **Anatta (No-Self)**: There is no permanent "soul" with free will making decisions. A character is merely a collection of "material properties" (Stiffness $E$, Toughness $T$, Plastic Strain $\varepsilon_p$) that are constantly hammered, twisted, and annealed by external events.
-- **Karma (Cause and Effect)**: Characters' actions generate "Karma," which writes back to and alters the external world (the Vessel World). This triggers new events that continue to impact the psychological materials of other characters, forming an indestructible chain of causality.
-
-Through an incredibly complex computational closed-loop, the system allows these deterministic equations to exhibit the **illusion of free will**—behaviors that look like "choices" and "humanity."
+> **Naming note**
+>  
+> This repository is hosted under the name `virtual-world-framework`.  
+> `VWI` remains the current internal project codename used in existing documents and demo code.
 
 ---
 
-## Theoretical Foundation: Material Physics Mapping Psychology
+## What VWI is trying to do
 
-The system abandons traditional "personality tags" and "linear HP deduction" models, pioneering the **Personality Material Mechanics Model**:
+VWI attempts to model characters not as collections of static personality tags, but as **materials under stress**.
 
-1. **Stress ($\sigma$)**: The impact caused by external events across four dimensions (Somatic, Material, Social, Ideological) is amplified through the character's "Desire Matrix," forming psychological pressure.
-2. **Elastic Strain ($\varepsilon_e$)**: Temporary emotional fluctuations that subside after the pressure disappears.
-3. **Plastic Strain ($\varepsilon_p$)**: Irreversible personality distortion. When pressure exceeds a character's "Yield Point," they suffer permanent psychological trauma and personality drift.
-4. **Fracture**: When plastic strain surpasses the extreme limit, the character breaks down completely.
+In this framework:
 
-### Soul Alchemy: Phase Transformation and Alloying
-Under extreme psychological strain, the Large Language Model (LLM) intervenes as an "Alchemist," injecting alloy elements into the character to alter their underlying material structure (Phase Transformation):
-- **Carbon (C)**: Hardens and makes brittle; leads to arrogance or "Blackening" (Martensite).
-- **Nickel (Ni)**: Softens the heart, increases toughness; leads to tolerance or "Sanctification" (Austenite).
-- **Sulfur (S)**: Introduces toxicity, drastically lowering the breakdown threshold.
+- external events act as multi-dimensional impacts
+- characters transform those impacts through internal desire structures
+- psychological changes accumulate as elastic or plastic strain
+- decisions emerge from deterministic state transitions rather than a fixed notion of “free will”
+- character actions write back to the world and generate new causal chains
 
----
-
-## Engineering Closed-Loop: The 7-Step FSM Pipeline
-
-Every cognitive cycle of a character must strictly pass through the following 7-step pipeline, designed based on the Buddhist concept of the Five Aggregates (Skandhas):
-
-1. **Contact (触)**: Perception and multi-dimensional subjective stress calculation (Objective Impact $\times$ Desire Amplification).
-2. **Conditioning (缘)**: Context buffering and the stress concentration effect ($K_t$) of historical trauma anchors.
-3. **Sensation (受)**: Calculation of elastic strain and accumulation of plastic distortion.
-4. **Cognition (想)**: Motivation generation, and triggering LLM's alloying judgment under extreme pressure.
-5. **Conflict (行)**: Calculation of internal friction ($F_{int}$) between internal drives and moral/risk constraints.
-6. **Decision (识)**: Five-state decision output (The system forces convergence into five absolute enums: `EXPLODE`, `ACT`, `HESITATE`, `SUPPRESS`, `BREAKDOWN`).
-7. **Karma (业)**: Multi-dimensional karma write-back, affecting the external world and recording time-decay logs.
+The goal is not to imitate humans with vague role labels, but to build a more structured simulation loop between **inner cognition** and **outer world state**.
 
 ---
 
-## Architecture Guarantees: Tick Isolation and Single Source of Truth
+## Core idea
 
-To ensure causal determinism under multi-character concurrency, VWI adopts strict, industry-grade architectural standards:
-- **Tick Isolation (Double Buffering)**: In any Tick $N$, characters can only read from a frozen, read-only snapshot $State_N$.
-- **CQRS and Transaction Pool**: Decisions made by characters during the "Karma" phase are pushed into a global transaction pool. The `Karma Resolver` handles conflict merging to generate $State_{N+1}$.
-- **LLM Structural Clamping**: Through strict JSON Schemas and global enum truth tables, the system completely seals off the risks of LLM numerical divergence or semantic drift.
+The project is built around a dual-engine structure:
+
+### 1. Sentient World
+The internal cognitive layer of characters.
+
+This part focuses on:
+- subjective stress calculation
+- memory and trauma accumulation
+- elastic vs. plastic psychological deformation
+- phase transformation under extreme pressure
+- bounded decision output
+
+### 2. Vessel World
+The external world layer.
+
+This part focuses on:
+- event generation and propagation
+- environmental change
+- karma / consequence write-back
+- world-state evolution across ticks
+
+Together, these two layers form a closed loop:
+**world impacts character -> character changes -> character acts -> world changes again**
 
 ---
 
-## Open Source Content
+## Theoretical direction
 
-This repository currently contains the following core components:
+VWI uses a **personality material mechanics** perspective.
 
-1. **Theoretical Whitepapers** (`*.md` in Chinese): Detailed architectural designs, mathematical formulas, and engineering flowcharts for both the Sentient World (psychological engine) and Vessel World (physical sandbox). This is the absolute foundation of the project.
-2. **Proof of Concept Prototype** (`/vwi_demo`): Contains a miniature Python-based dual-engine prototype. Used to verify the feasibility of "Material Mechanics Mapping Psychology" and "LLM Bidirectional Binding." (*Note: This code is currently a single-threaded prototype for theoretical validation, provided for research reference.*)
+Some of the key ideas include:
 
-### How to Read the Documentation (Currently in Chinese)
+- **Stress**: external impact across somatic, material, social, and ideological dimensions
+- **Elastic strain**: temporary emotional fluctuation
+- **Plastic strain**: irreversible personality deformation
+- **Fracture**: complete breakdown after accumulated overload
+- **Phase transformation / alloying**: under extreme conditions, the model may alter the character’s internal material structure
 
-We recommend reading the theoretical designs in the following order:
-1. `虚拟世界基础设施V2.0架构设计.md` (VWI V2.0 Architecture Design) — Macro top-level design and engineering closed-loop specifications.
-2. `有情世间引擎文档1.0.md` (Sentient World Engine Doc) — Core psychological engine (7-step pipeline and material model).
-3. `人格模拟系统10.0设计方案（上）.md` (Personality Simulation System V10.0) — The underlying logic of material phase transformations.
-4. `器世间引擎文档1.0.md` (Vessel World Engine Doc) — Natural evolution and event diffusion of the external physical environment.
+This is a research model, not a claim of psychological realism.  
+The current implementation is meant to test whether such a framework can produce coherent simulation behavior.
 
-## Future Outlook
-VWI aims to explore the boundaries of complex autonomous systems in the AI era. We have proven that by placing "mathematical shackles" on LLMs, narratives can become rigorous and computable. Future evolutionary directions include: Social fluid dynamics, complete database-backed Event Sourcing, and integration with massive parallel computing.
+---
+
+## Current status
+
+This repository is **not** a production-ready engine.
+
+At the moment, it should be understood as:
+
+- a research alpha
+- a conceptual framework
+- an early technical prototype
+- a public snapshot of an evolving system
+
+Some parts are intentionally simplified.  
+For example, the current demo uses placeholder-style random population generation and a simplified social topology to prove that the engine pipeline can run end to end.
+
+---
+
+## Repository structure
+
+```text
+docs/   theoretical documents, whitepapers, and design notes
+demo/   early proof-of-concept code
+Running the demo
+
+The Python demo currently uses package-style relative imports.
+
+Please run it from the project root as a module, instead of directly executing __main__.py.
+
+Example:
+
+python -m vwi_demo --ticks 20 --mode GOD
+
+Available options may include:
+
+--ticks number of simulation ticks
+--mode interaction mode (GOD, ARCHON, AVATAR)
+--seed random seed for reproducibility
+--use-llm enable LLM-assisted processing when configured
+--interactive interactive event input
+
+If enabled, logs are written to:
+
+outputs/run_log.jsonl
+Notes on the demo
+
+Please read the current demo as an engine experiment, not as a complete social simulation product.
+
+The present version is mainly used to validate:
+
+the dual-engine loop
+stress -> deformation -> decision mapping
+world write-back logic
+basic LLM-assisted phase transformation flow
+
+It does not yet represent a fully realistic society model, large-scale concurrency architecture, or production deployment system.
+
+Suggested reading order
+
+If you want to understand the project from theory to prototype, a good reading order is:
+
+top-level architecture design
+sentient-world / personality engine documents
+material transformation / personality mechanics documents
+vessel-world / external world engine documents
+demo code
+Why this repository is public
+
+This repository is being published in its current form for three reasons:
+
+to make the core ideas inspectable
+to establish a public research starting point
+to iterate in the open, instead of waiting for a “perfect” first release
+License
+
+This project uses a custom Virtual World Framework License.
+
+It is available for personal study, education, research, and non-commercial evaluation only.
+
+Commercial use, SaaS/hosted deployment, and integration into closed-source products require separate written permission from the copyright holder.
+
+Please see LICENSE
+ for details.
