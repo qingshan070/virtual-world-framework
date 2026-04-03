@@ -1,12 +1,10 @@
-# VWI: Virtual World Framework
+# VWI: Virtual World Infrastructure (Proof of Concept)
 
 [English Version](README.md) | [中文版](README_zh-CN.md)
 
 "There is no free will; there are only the consequences of stress, strain, and emergence."
 
-This repository hosts `virtual-world-framework`. The internal project codename `VWI` is used throughout the documentation and demo code.
-
-VWI is a research-oriented virtual world framework. It explores how to combine deterministic simulation, personality modeling, and large language models (LLMs) into a unified sandbox system. Rather than treating characters as static sets of personality tags, VWI treats them as materials under stress. External events act as multidimensional impacts, which characters process through their internal desire structures. Psychological changes accumulate as elastic or plastic strain, and decisions emerge from deterministic state transitions rather than a fixed concept of free will. Character actions then write back to the world, generating new causal chains.
+VWI is a research-oriented virtual world infrastructure. It explores how to combine deterministic simulation, personality modeling, and large language models (LLMs) into a unified sandbox system. Rather than treating characters as static sets of personality tags, VWI treats them as materials under stress. External events act as multidimensional impacts, which characters process through their internal desire structures. Psychological changes accumulate as elastic or plastic strain, and decisions emerge from deterministic state transitions rather than a fixed concept of free will. Character actions then write back to the world, generating new causal chains.
 
 ## Dual-Engine Architecture
 
@@ -37,7 +35,7 @@ VWI adopts the perspective of "personality material mechanics." Key concepts inc
 - **Fracture**: Complete psychological breakdown when plastic strain exceeds a critical threshold.
 - **Phase transformation / alloying**: Fundamental shifts in personality structure (e.g., becoming hardened or sensitized) triggered under extreme stress, occasionally facilitated by LLM intervention.
 
-This is a research model, not a claim to absolute psychological realism. The current implementation is primarily designed to test whether this framework can produce coherent simulation behavior.
+This is a research model, not a claim to absolute psychological realism. The current implementation is primarily designed to test whether this infrastructure can produce coherent simulation behavior.
 
 ## Current Status
 
@@ -87,7 +85,7 @@ It does **not** represent:
 
 ## Suggested Reading Order
 
-To understand the framework, we recommend reading the materials in this order:
+To understand the infrastructure, we recommend reading the materials in this order:
 
 1. Top-level architecture design
 2. Sentient-world / personality engine documents
@@ -104,7 +102,7 @@ We have made this repository public for three main reasons:
 
 ## License
 
-This project is licensed under a custom Virtual World Framework License. The license permits personal study, education, research, and non-commercial evaluation. 
+This project is licensed under a custom Virtual World Infrastructure License. The license permits personal study, education, research, and non-commercial evaluation. 
 
 Commercial use, SaaS / hosted deployment, or integration into closed-source products requires separate written permission from the copyright holder.
 
